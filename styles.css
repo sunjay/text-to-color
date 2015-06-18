@@ -1,0 +1,27 @@
+body {
+  -webkit-transition: background-color 300ms ease-in-out;
+  -moz-transition: background-color 300ms ease-in-out;
+  -o-transition: background-color 300ms ease-in-out;
+  -ms-transition: background-color 300ms ease-in-out;
+  transition: background-color 300ms ease-in-out;
+}
+
+.words-container {
+  margin-top: 20%;
+  max-width: 250px;
+}
+
+.rgb-color, .hex-color {
+  display: block;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .rgb-color {
+    text-align: left;
+  }
+
+  .hex-color {
+    text-align: right;
+  }
+}
