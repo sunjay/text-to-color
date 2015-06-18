@@ -12,7 +12,7 @@ $('.words').on('keyup change', function() {
 
 $(window).on('hashchange', function() {
   var parsedHash = /t\=([^&]*)/.exec(location.hash);
-  var text = parsedHash[1] || "";
+  var text = decodeURIComponent(parsedHash[1] || "");
   $('.words').val(text).change();
 }).trigger('hashchange');
 
