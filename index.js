@@ -1,12 +1,22 @@
-$('.words').keyup(function() {
+$('.words').on('keyup change', function() {
   var text = $(this).val();
   var color = textToColor(text);
   var colorString = "rgb(" + color.join(", ") + ")";
-  $('.rgb-color').text(colorString);
   var hexString = rgbToHex(color[0], color[1], color[2]).toUpperCase();
+
+  $('.rgb-color').text(colorString);
   $('.hex-color').text(hexString);
   $('body').css('background-color', colorString);
-}).keyup();
+  location.hash = "t=" + text;
+});
+
+$(window).on('hashchange', function() {
+  var parsedHash = /t\=([^&]*)/.exec(location.hash);
+  var text = parsedHash[1] || "";
+  $('.words').val(text).change();
+}).trigger('hashchange');
+
+$('.words').change();
 
 function textToColor(text) {
   var color = [255, 255, 255];
