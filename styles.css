@@ -25,3 +25,26 @@ body {
     text-align: right;
   }
 }
+
+body.rainbow-bg {
+  background: linear-gradient(310deg, #ff0000, #ff9400, #ffee00, #45ff00, #0081ff, #8200ff, #e700ff, #8200ff, #0081ff, #45ff00, #ffee00, #ff9400, #ff0000);
+  background-size: 1400% 1400%;
+
+  -webkit-animation: rainbow-bg-animation 5s linear infinite;
+  -moz-animation: rainbow-bg-animation 5s linear infinite;
+  animation: rainbow-bg-animation 5s linear infinite;
+}
+
+@-webkit-keyframes rainbow-bg-animation {
+    0%{background-position:0% 50%}
+    100%{background-position:100% 50%}
+}
+@-moz-keyframes rainbow-bg-animation {
+    0%{background-position:0% 50%}
+    100%{background-position:100% 50%}
+}
+@keyframes rainbow-bg-animation { 
+    0%{background-position:0% 50%}
+    100%{background-position:100% 50%}
+}
+

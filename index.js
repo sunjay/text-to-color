@@ -1,5 +1,15 @@
 $('.words').on('keyup change', function() {
   var text = $(this).val();
+  location.hash = "t=" + text;
+
+  if (text.toLowerCase() == "sunjay") {
+    document.body.classList.add("rainbow-bg");
+    $('.rgb-color').text("RAINBOW!!!!");
+    $('.hex-color').text("");
+    return;
+  }
+  document.body.classList.remove("rainbow-bg");
+
   var color = textToColor(text);
   var colorString = "rgb(" + color.join(", ") + ")";
   var hexString = rgbToHex(color[0], color[1], color[2]).toUpperCase();
@@ -7,7 +17,6 @@ $('.words').on('keyup change', function() {
   $('.rgb-color').text(colorString);
   $('.hex-color').text(hexString);
   $('body').css('background-color', colorString);
-  location.hash = "t=" + text;
 });
 
 $(window).on('hashchange', function() {
